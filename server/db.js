@@ -1,32 +1,38 @@
-import { DatabaseSync } from "node:sqlite";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import fs from "node:fs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const db = new DatabaseSync(path.join(__dirname, "data.sqlite"));
+const dataFile = path.join(__dirname, "data.json");
 
-db.exec(`
-  CREATE TABLE IF NOT EXISTS visits (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    ref TEXT NOT NULL,
-    created_at TEXT NOT NULL DEFAULT (datetime('now'))
-  );
-`);
+function load() {
+  try {
+    return JSON.parse(fs.readFileSync(dataFile, "utf8"));
+  } catch {
+    return { visits: [] };
+  }
+}
+
+function save(data) {
+  fs.writeFileSync(dataFile, JSON.stringify(data), "utf8");
+}
 
 export function logVisit(ref) {
   const clean = ref === "ahmed" || ref === "sohaila" ? ref : "other";
-  db.prepare("INSERT INTO visits (ref) VALUES (?)").run(clean);
+  const data = load();
+  data.visits.push({ ref: clean, created_at: new Date().toISOString() });
+  save(data);
 }
 
 export function getStats() {
-  const total = db.prepare("SELECT COUNT(*) AS c FROM visits").get().c;
-  const ahmed = db.prepare("SELECT COUNT(*) AS c FROM visits WHERE ref = 'ahmed'").get().c;
-  const sohaila = db.prepare("SELECT COUNT(*) AS c FROM visits WHERE ref = 'sohaila'").get().c;
-  const other = db.prepare("SELECT COUNT(*) AS c FROM visits WHERE ref = 'other'").get().c;
-  const recent = db
-    .prepare("SELECT ref, created_at FROM visits ORDER BY id DESC LIMIT 20")
-    .all();
-  return { total, ahmed, sohaila, other, recent };
+  const { visits } = load();
+  const count = (ref) => visits.filter((v) => v.ref === ref).length;
+  const recent = visits.slice(-20).reverse();
+  return {
+    total: visits.length,
+    ahmed: count("ahmed"),
+    sohaila: count("sohaila"),
+    other: count("other"),
+    recent,
+  };
 }
-
-export default db;

@@ -143,4 +143,4 @@ vite.config.ts.timestamp-*
 .vite/
 
 # Project-specific
-server/data.sqlite
+server/data.json
