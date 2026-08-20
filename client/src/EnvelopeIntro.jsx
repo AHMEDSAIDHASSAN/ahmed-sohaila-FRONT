@@ -1,11 +1,12 @@
 import { useState } from "react";
 import "./EnvelopeIntro.css";
 
-export default function EnvelopeIntro({ onOpen }) {
+export default function EnvelopeIntro({ onOpen, onPlayMusic }) {
   const [phase, setPhase] = useState("idle"); // idle -> opening -> leaving
 
   const handleClick = () => {
     if (phase !== "idle") return;
+    onPlayMusic?.();
     setPhase("opening");
     setTimeout(() => setPhase("leaving"), 900);
     setTimeout(() => onOpen(), 1450);

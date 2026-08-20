@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Invitation.css";
 import useCountdown from "./useCountdown";
 import { API_BASE, WEDDING_DATE_ISO, MAPS_URL } from "./config";
@@ -37,6 +37,8 @@ function PinIcon() {
 export default function Invitation() {
   const { days, hours, minutes, seconds } = useCountdown(WEDDING_DATE_ISO);
   const [opened, setOpened] = useState(false);
+  const [muted, setMuted] = useState(false);
+  const audioRef = useRef(null);
 
   useEffect(() => {
     const ref = new URLSearchParams(window.location.search).get("from") || "other";
@@ -54,7 +56,26 @@ export default function Invitation() {
 
   return (
     <div className="page">
-      {!opened && <EnvelopeIntro onOpen={() => setOpened(true)} />}
+      <audio ref={audioRef} src="/audio/wedding-song.mp3" loop preload="auto" />
+      {!opened && (
+        <EnvelopeIntro
+          onOpen={() => setOpened(true)}
+          onPlayMusic={() => audioRef.current?.play().catch(() => {})}
+        />
+      )}
+      {opened && (
+        <button
+          className="mute-toggle"
+          onClick={() => {
+            const next = !muted;
+            setMuted(next);
+            if (audioRef.current) audioRef.current.muted = next;
+          }}
+          aria-label={muted ? "Unmute music" : "Mute music"}
+        >
+          {muted ? "🔇" : "🔊"}
+        </button>
+      )}
       <div className="card">
         {/* Monogram + wedding concert label */}
         <Reveal as="section" className="monogram-section">
