@@ -360,12 +360,15 @@ section {
   background: var(--maroon);
   color: #f6e9e6;
   text-decoration: none;
+  border: none;
   padding: 14px 32px;
   border-radius: 4px;
   letter-spacing: 2px;
   font-size: 13px;
   text-transform: uppercase;
   font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 

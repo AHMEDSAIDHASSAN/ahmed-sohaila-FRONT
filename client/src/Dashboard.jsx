@@ -112,6 +112,28 @@ export default function Dashboard() {
               ))}
             </tbody>
           </table>
+
+          <h3>RSVPs ({stats.rsvps.length})</h3>
+          <table className="dash-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Attending</th>
+                <th>Message</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              {stats.rsvps.map((r, i) => (
+                <tr key={i}>
+                  <td>{r.name}</td>
+                  <td>{r.attending === "yes" ? "✅ Yes" : "❌ No"}</td>
+                  <td>{r.message}</td>
+                  <td>{r.created_at}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </>
       )}
     </div>

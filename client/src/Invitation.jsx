@@ -4,6 +4,7 @@ import useCountdown from "./useCountdown";
 import { API_BASE, WEDDING_DATE_ISO, MAPS_URL } from "./config";
 import Reveal from "./Reveal";
 import EnvelopeIntro from "./EnvelopeIntro";
+import RsvpModal from "./RsvpModal";
 
 const DRESS_COLORS = [
   { name: "Olive Green", hex: "#7c7a4c" },
@@ -38,6 +39,7 @@ export default function Invitation() {
   const { days, hours, minutes, seconds } = useCountdown(WEDDING_DATE_ISO);
   const [opened, setOpened] = useState(false);
   const [muted, setMuted] = useState(false);
+  const [rsvpOpen, setRsvpOpen] = useState(false);
   const audioRef = useRef(null);
 
   useEffect(() => {
@@ -192,10 +194,12 @@ export default function Invitation() {
         <Reveal as="section" className="rsvp-section">
           <h3 className="section-title">RSVP</h3>
           <p className="section-sub">Kindly RSVP by 31 August 2026</p>
-          <a className="rsvp-btn" href="https://wa.me/YOUR_NUMBER" target="_blank" rel="noreferrer">
+          <button className="rsvp-btn" onClick={() => setRsvpOpen(true)}>
             Confirm Your Presence
-          </a>
+          </button>
         </Reveal>
+
+        {rsvpOpen && <RsvpModal onClose={() => setRsvpOpen(false)} />}
 
         {/* Thank you */}
         <Reveal as="section" className="thankyou-section">

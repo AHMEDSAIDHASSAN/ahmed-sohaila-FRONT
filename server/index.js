@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { logVisit, getStats } from "./db.js";
+import { logVisit, addRsvp, getStats } from "./db.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -16,6 +16,15 @@ app.use(express.json());
 app.post("/api/visit", (req, res) => {
   const ref = (req.query.ref || req.body?.ref || "other").toString();
   logVisit(ref);
+  res.json({ ok: true });
+});
+
+app.post("/api/rsvp", (req, res) => {
+  const { name, attending, message } = req.body || {};
+  if (!name || !String(name).trim()) {
+    return res.status(400).json({ error: "name is required" });
+  }
+  addRsvp({ name, attending, message });
   res.json({ ok: true });
 });
 
