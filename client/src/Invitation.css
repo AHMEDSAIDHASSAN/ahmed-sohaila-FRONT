@@ -103,7 +103,7 @@ section {
 }
 
 .monogram-img {
-  width: 210px;
+  width: 260px;
   margin: 0 auto;
   display: block;
 }
@@ -143,12 +143,21 @@ section {
   padding-top: 32px;
 }
 
-.floral-corner {
+.floral-corner-left {
   position: absolute;
-  top: 4px;
-  right: 8px;
-  width: 90px;
+  top: -6px;
+  left: -4px;
+  width: 120px;
   height: auto;
+}
+
+.floral-side-right {
+  position: absolute;
+  top: -10px;
+  right: -14px;
+  width: 150px;
+  height: auto;
+  z-index: 0;
 }
 
 .intro-text {
@@ -169,6 +178,7 @@ section {
 
 /* Date */
 .date-hero {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -239,6 +249,7 @@ section {
 }
 
 .countdown-section {
+  position: relative;
   padding-top: 20px;
 }
 

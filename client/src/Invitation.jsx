@@ -93,22 +93,20 @@ export default function Invitation() {
 
         {/* Intro line */}
         <Reveal as="section" className="intro-section">
-          <img className="floral-corner float" src="/assets/floral-corner.png" alt="" aria-hidden="true" />
+          <Divider />
+          <img className="floral-corner-left float" src="/assets/floral-corner.png" alt="" aria-hidden="true" />
           <p className="intro-text">
             A NEW CHAPTER BEGINS...
-            <br />
-            AND WE WOULD BE HONORED TO HAVE YOU WITH US
-            <br />
+            AND WE WOULD BE HONORED
+            TO HAVE YOU WITH US
             ON OUR SPECIAL DAY.
           </p>
           <Divider />
         </Reveal>
 
-        {/* Floral divider before date */}
-        <Reveal as="img" className="art-full" src="/assets/floral-divider.png" alt="" aria-hidden="true" />
-
         {/* Date */}
         <Reveal as="section" className="date-hero">
+          <img className="floral-side-right float" src="/assets/floral-divider.png" alt="" aria-hidden="true" />
           <span className="date-day">31</span>
           <span className="date-month">AUG</span>
         </Reveal>
@@ -133,6 +131,7 @@ export default function Invitation() {
 
         {/* Countdown (live) */}
         <Reveal as="section" className="countdown-section">
+          <img className="floral-side-right float" src="/assets/floral-corner.png" alt="" aria-hidden="true" />
           <h3 className="section-title">Time Left Until Our Wedding</h3>
           <div className="countdown-grid">
             <div className="countdown-cell">
