@@ -154,7 +154,8 @@ section {
 .intro-text {
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 600;
   line-height: 2;
   color: var(--maroon-deep);
 }
@@ -193,10 +194,10 @@ section {
 }
 
 .names {
-  font-size: 22px;
+  font-size: 26px;
   letter-spacing: 3px;
   color: var(--maroon);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .amp {
@@ -212,7 +213,8 @@ section {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  font-size: 15px;
+  font-size: 17px;
+  font-weight: 600;
   color: var(--text-soft);
 }
 
@@ -223,13 +225,15 @@ section {
 .section-title {
   text-transform: uppercase;
   letter-spacing: 3px;
-  font-size: 15px;
+  font-size: 18px;
+  font-weight: 700;
   color: var(--maroon);
   margin-bottom: 6px;
 }
 
 .section-sub {
-  font-size: 13px;
+  font-size: 15px;
+  font-weight: 500;
   color: var(--text-soft);
   margin-bottom: 18px;
 }
@@ -253,13 +257,14 @@ section {
 }
 
 .countdown-num {
-  font-size: 30px;
-  font-weight: 600;
+  font-size: 36px;
+  font-weight: 700;
   color: var(--maroon-deep);
 }
 
 .countdown-unit {
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--text-soft);
@@ -286,16 +291,16 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  width: 80px;
+  gap: 10px;
+  width: 88px;
 }
 
 .swatch-dot {
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  border: 3px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.25s ease;
 }
 
@@ -304,7 +309,8 @@ section {
 }
 
 .swatch-label {
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: 700;
   color: var(--text-soft);
   text-align: center;
 }
@@ -325,7 +331,8 @@ section {
 }
 
 .address {
-  font-size: 13px;
+  font-size: 15px;
+  font-weight: 500;
   color: var(--text-soft);
   line-height: 1.6;
   max-width: 280px;
@@ -337,9 +344,9 @@ section {
   align-items: center;
   gap: 6px;
   margin-top: 14px;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--maroon);
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   border-bottom: 1px solid var(--maroon);
   padding-bottom: 2px;
@@ -379,7 +386,8 @@ section {
 
 .thankyou-text {
   margin-top: 16px;
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 500;
   color: var(--text-soft);
   line-height: 1.8;
 }
