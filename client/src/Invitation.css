@@ -145,10 +145,11 @@ section {
 
 .floral-corner-left {
   position: absolute;
-  top: -6px;
-  left: -4px;
-  width: 120px;
+  top: 4px;
+  left: -10px;
+  width: 210px;
   height: auto;
+  z-index: 1;
 }
 
 .floral-side-right {
@@ -156,6 +157,15 @@ section {
   top: -10px;
   right: -14px;
   width: 150px;
+  height: auto;
+  z-index: 0;
+}
+
+.floral-side-strip {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  width: 60px;
   height: auto;
   z-index: 0;
 }
