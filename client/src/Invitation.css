@@ -149,24 +149,25 @@ section {
 
 .floral-corner-left {
   position: absolute;
-  top: 6px;
-  left: -28px;
-  width: 230px;
+  top: 4px;
+  left: -14px;
+  width: 165px;
   height: auto;
   z-index: 1;
 }
 
 .floral-side-right {
   position: absolute;
-  top: -6px;
-  right: -30px;
-  width: 190px;
+  top: -4px;
+  right: -16px;
+  width: 130px;
   height: auto;
   z-index: 0;
 }
 
 .floral-countdown {
-  top: 48px;
+  top: auto;
+  bottom: -8px;
 }
 
 .intro-text {
