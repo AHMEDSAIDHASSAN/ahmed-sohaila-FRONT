@@ -131,7 +131,7 @@ export default function Invitation() {
 
         {/* Countdown (live) */}
         <Reveal as="section" className="countdown-section">
-          <img className="floral-side-strip float" src="/assets/floral-side-strip.png" alt="" aria-hidden="true" />
+          <img className="floral-side-right floral-countdown float" src="/assets/floral-divider.png" alt="" aria-hidden="true" />
           <h3 className="section-title">Time Left Until Our Wedding</h3>
           <div className="countdown-grid">
             <div className="countdown-cell">
@@ -211,7 +211,7 @@ export default function Invitation() {
         </Reveal>
 
         {/* Footer */}
-        <Reveal as="img" className="art-full" src="/assets/footer-band.png" alt="S & A" />
+        <Reveal as="img" className="art-full footer-band-img" src="/assets/footer-band.png" alt="S & A" />
       </div>
     </div>
   );
