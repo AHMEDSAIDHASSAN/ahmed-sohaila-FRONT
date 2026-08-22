@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./RsvpModal.css";
 import { API_BASE } from "./config";
 
-export default function RsvpModal({ onClose }) {
+export default function RsvpModal({ onClose, theme = "bride" }) {
   const [name, setName] = useState("");
   const [attending, setAttending] = useState("yes");
   const [message, setMessage] = useState("");
@@ -27,7 +27,7 @@ export default function RsvpModal({ onClose }) {
 
   return (
     <div className="rsvp-overlay" onClick={onClose}>
-      <div className="rsvp-modal" dir="rtl" onClick={(e) => e.stopPropagation()}>
+      <div className={`rsvp-modal ${theme === "groom" ? "groom" : ""}`} dir="rtl" onClick={(e) => e.stopPropagation()}>
         <button className="rsvp-close" onClick={onClose} aria-label="Close">
           ×
         </button>

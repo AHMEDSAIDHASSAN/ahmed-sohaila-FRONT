@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./Invitation.css";
 import useCountdown from "./useCountdown";
-import { API_BASE, WEDDING_DATE_ISO, MAPS_URL } from "./config";
+import { WEDDING_DATE_ISO, MAPS_URL, trackVisit } from "./config";
 import Reveal from "./Reveal";
 import EnvelopeIntro from "./EnvelopeIntro";
 import RsvpModal from "./RsvpModal";
@@ -43,10 +43,7 @@ export default function Invitation() {
   const audioRef = useRef(null);
 
   useEffect(() => {
-    const ref = new URLSearchParams(window.location.search).get("from") || "other";
-    fetch(`${API_BASE}/api/visit?ref=${encodeURIComponent(ref)}`, { method: "POST" }).catch(
-      () => {}
-    );
+    trackVisit("sohaila");
   }, []);
 
   useEffect(() => {

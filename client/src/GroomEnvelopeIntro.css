@@ -1,0 +1,175 @@
+.g-envelope-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--navy-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.g-envelope-overlay.leaving {
+  opacity: 0;
+  transform: scale(1.06);
+  pointer-events: none;
+}
+
+.g-envelope-trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 0;
+  font-family: inherit;
+}
+
+.g-invite-tag {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  letter-spacing: 2px;
+  font-size: 24px;
+  color: var(--gold-light);
+}
+
+.g-envelope {
+  position: relative;
+  width: 240px;
+  height: 168px;
+  perspective: 700px;
+}
+
+.g-envelope-body {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--navy);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+}
+
+.g-envelope-body::before,
+.g-envelope-body::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 55%;
+  height: 68%;
+  border-top: 1px solid rgba(201, 162, 39, 0.4);
+}
+
+.g-envelope-body::before {
+  left: 0;
+  transform-origin: bottom left;
+  transform: rotate(28deg) translateX(-2px);
+}
+
+.g-envelope-body::after {
+  right: 0;
+  transform-origin: bottom right;
+  transform: rotate(-28deg) translateX(2px);
+}
+
+.g-envelope-letter {
+  position: absolute;
+  z-index: 2;
+  left: 8%;
+  right: 8%;
+  top: 10%;
+  height: 82%;
+  background: var(--charcoal);
+  border: 1px solid var(--gold);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0);
+  transition: transform 0.6s ease 0.25s;
+}
+
+.g-envelope-letter-mono {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 30px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  opacity: 0;
+  transition: opacity 0.4s ease 0.6s;
+}
+
+.g-envelope.open .g-envelope-letter-mono {
+  opacity: 1;
+}
+
+.g-envelope-flap {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 62%;
+  background: var(--navy-deep);
+  border-bottom: 1px solid var(--gold);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center;
+  transition: transform 0.7s ease;
+  transform: rotateX(0deg);
+}
+
+.g-envelope-seal {
+  position: absolute;
+  z-index: 4;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--gold);
+  font-size: 26px;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.g-envelope.open .g-envelope-flap {
+  transform: rotateX(-160deg);
+}
+
+.g-envelope.open .g-envelope-letter {
+  transform: translateY(-34px);
+}
+
+.g-envelope.open .g-envelope-seal {
+  transform: translate(-50%, -80px) scale(0.6);
+  opacity: 0;
+}
+
+.g-tap-hint {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  animation: gHintPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes gHintPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .g-envelope-overlay,
+  .g-envelope-flap,
+  .g-envelope-letter,
+  .g-envelope-letter-mono,
+  .g-envelope-seal {
+    transition: none;
+  }
+  .g-tap-hint {
+    animation: none;
+  }
+}
