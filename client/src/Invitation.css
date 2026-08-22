@@ -30,6 +30,7 @@
   max-width: 430px;
   background: var(--card-bg);
   border-radius: 18px;
+  overflow: hidden;
   box-shadow: 0 20px 60px rgba(74, 20, 32, 0.15);
 }
 
@@ -147,27 +148,13 @@ section {
   padding-top: 32px;
 }
 
-.floral-corner-left {
-  position: absolute;
-  top: 4px;
-  left: -14px;
-  width: 165px;
-  height: auto;
-  z-index: 1;
-}
-
 .floral-side-right {
   position: absolute;
-  top: -4px;
-  right: -16px;
+  top: 0;
+  right: 8px;
   width: 130px;
   height: auto;
   z-index: 0;
-}
-
-.floral-countdown {
-  top: auto;
-  bottom: -8px;
 }
 
 .intro-text {
