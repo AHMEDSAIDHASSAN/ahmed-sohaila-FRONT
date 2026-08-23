@@ -1,15 +1,18 @@
 .g-page {
-  --navy: #1b2635;
-  --navy-deep: #10161f;
-  --charcoal: #2b2f38;
+  --ink: #0a0a0c;
+  --ink-2: #131315;
+  --panel: #121214;
   --gold: #c9a227;
-  --gold-light: #e8cf8a;
-  --text-soft: #b9bfc9;
+  --gold-light: #e9d38f;
+  --gold-dim: rgba(201, 162, 39, 0.35);
+  --text-soft: #a9a6a0;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   padding: 24px 12px;
-  background: var(--navy-deep);
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(201, 162, 39, 0.14), transparent 55%),
+    var(--ink);
 }
 
 .g-mute-toggle {
@@ -21,31 +24,67 @@
   height: 40px;
   border-radius: 50%;
   border: 1px solid var(--gold);
-  background: var(--navy);
+  background: var(--ink-2);
   color: var(--gold-light);
   font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
 }
 
 .g-card {
   position: relative;
   width: 100%;
   max-width: 430px;
-  background: var(--navy);
-  border: 1px solid rgba(201, 162, 39, 0.35);
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  background: var(--panel);
+  border: 1px solid var(--gold-dim);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65), inset 0 0 0 1px rgba(201, 162, 39, 0.06);
   font-family: "Cormorant Garamond", "Cairo", serif;
   color: var(--gold-light);
 }
 
+/* Art-deco corner marks */
+.g-corner {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border: 1.5px solid var(--gold);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.g-corner-tl {
+  top: 10px;
+  left: 10px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.g-corner-tr {
+  top: 10px;
+  right: 10px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.g-corner-bl {
+  bottom: 10px;
+  left: 10px;
+  border-right: none;
+  border-top: none;
+}
+
+.g-corner-br {
+  bottom: 10px;
+  right: 10px;
+  border-left: none;
+  border-top: none;
+}
+
 .g-card section {
-  padding: 24px 24px;
+  padding: 26px 24px;
   text-align: center;
 }
 
@@ -96,56 +135,56 @@
 
 /* Monogram */
 .g-monogram-section {
-  padding: 32px 24px 8px;
+  padding: 40px 24px 8px;
+  border-bottom: 1px solid var(--gold-dim);
 }
 
 .g-monogram-img {
-  width: 220px;
+  width: 190px;
   margin: 0 auto;
   display: block;
-  filter: grayscale(1) brightness(1.6) sepia(0.4) hue-rotate(-10deg);
-  opacity: 0.92;
+  filter: grayscale(1) brightness(1.7) sepia(0.5) hue-rotate(-8deg) contrast(1.05);
+  opacity: 0.95;
 }
 
 .g-section-label {
   text-transform: uppercase;
-  letter-spacing: 4px;
-  font-size: 14px;
+  letter-spacing: 6px;
+  font-size: 12px;
   color: var(--gold);
-  margin-top: 8px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--gold);
+  margin-top: 14px;
+  padding-bottom: 14px;
   display: inline-block;
 }
 
 /* Concert card */
 .g-concert-section {
-  padding: 0 20px 24px;
+  padding: 24px 20px;
 }
 
 .g-concert-img {
-  border-radius: 10px;
-  border: 1px solid rgba(201, 162, 39, 0.4);
+  outline: 1px solid var(--gold-dim);
+  outline-offset: 6px;
 }
 
 /* Intro */
 .g-intro-section {
-  padding-top: 8px;
+  padding: 8px 24px 26px;
 }
 
 .g-intro-text {
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 2;
-  color: var(--gold-light);
+  letter-spacing: 2px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 2.1;
+  color: var(--text-soft);
 }
 
 .g-divider {
-  width: 140px;
+  width: 120px;
   height: 16px;
-  margin: 16px auto 0;
+  margin: 18px auto 0;
   color: var(--gold);
 }
 
@@ -154,126 +193,143 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 8px 24px 16px;
+  padding: 10px 24px 20px;
+  border-top: 1px solid var(--gold-dim);
+  border-bottom: 1px solid var(--gold-dim);
 }
 
-.laurel {
-  width: 130px;
+.crest {
+  width: 78px;
   height: auto;
   color: var(--gold);
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 .g-date-day {
   font-family: "Cormorant Garamond", serif;
-  font-size: 90px;
+  font-size: 80px;
   line-height: 0.9;
   color: var(--gold-light);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .g-date-month {
-  font-size: 32px;
-  letter-spacing: 8px;
-  color: var(--gold-light);
+  font-size: 22px;
+  letter-spacing: 12px;
+  color: var(--gold);
+  margin-top: 4px;
 }
 
 .g-names-section {
-  padding-top: 8px;
+  padding-top: 26px;
 }
 
 .g-names {
-  font-size: 26px;
-  letter-spacing: 3px;
-  color: var(--gold);
-  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 5px;
+  color: var(--gold-light);
+  font-weight: 500;
 }
 
 .g-amp {
-  color: var(--gold-light);
+  color: var(--gold);
   font-style: italic;
-  font-size: 24px;
-  margin: 0 4px;
+  font-size: 22px;
+  margin: 0 6px;
 }
 
 .g-details-list {
   list-style: none;
-  margin-top: 20px;
+  margin-top: 22px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  font-size: 17px;
-  font-weight: 500;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 1px;
   color: var(--text-soft);
 }
 
 .g-detail-icon {
   margin-right: 4px;
+  filter: grayscale(1) brightness(1.4);
 }
 
 .g-section-title {
   text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 18px;
-  font-weight: 700;
+  letter-spacing: 4px;
+  font-size: 15px;
+  font-weight: 600;
   color: var(--gold);
   margin-bottom: 6px;
 }
 
 .g-section-sub {
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 400;
+  font-style: italic;
   color: var(--text-soft);
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .g-countdown-section {
-  padding-top: 20px;
+  padding: 26px 20px;
+  border-top: 1px solid var(--gold-dim);
 }
 
 .g-countdown-grid {
   display: flex;
   justify-content: center;
-  gap: 18px;
-  margin-top: 12px;
+  gap: 14px;
+  margin-top: 16px;
 }
 
 .g-countdown-cell {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 44px;
+  min-width: 52px;
+}
+
+.g-countdown-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border: 1px solid var(--gold-dim);
 }
 
 .g-countdown-num {
-  font-size: 36px;
-  font-weight: 700;
+  font-size: 26px;
+  font-weight: 500;
   color: var(--gold-light);
 }
 
 .g-countdown-unit {
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   color: var(--text-soft);
-  margin-top: 4px;
+  margin-top: 8px;
 }
 
 .g-dress-section {
-  padding: 24px 20px;
+  padding: 26px 20px;
+  border-top: 1px solid var(--gold-dim);
 }
 
 .g-swatch-row {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 18px;
   flex-wrap: wrap;
   margin-top: 12px;
 }
 
 .g-swatch-row.single {
-  margin-top: 20px;
+  margin-top: 22px;
 }
 
 .g-swatch {
@@ -285,21 +341,32 @@
 }
 
 .g-swatch-dot {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 3px solid rgba(232, 207, 138, 0.5);
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+  position: relative;
+  width: 46px;
+  height: 46px;
   transition: transform 0.25s ease;
 }
 
+.g-swatch-hex {
+  position: absolute;
+  inset: -4px;
+  fill: none;
+  stroke: var(--gold-dim);
+  stroke-width: 1.5;
+}
+
+.g-swatch-dot {
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+}
+
 .g-swatch:hover .g-swatch-dot {
-  transform: scale(1.12);
+  transform: scale(1.1);
 }
 
 .g-swatch-label {
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
   color: var(--text-soft);
   text-align: center;
 }
@@ -311,19 +378,21 @@
 
 /* Location */
 .g-location-section {
-  padding: 24px 20px;
+  padding: 26px 20px;
+  border-top: 1px solid var(--gold-dim);
 }
 
 .g-map-pin {
-  width: 90px;
-  margin: 8px auto 12px;
+  width: 72px;
+  margin: 8px auto 14px;
+  filter: grayscale(1) brightness(1.3) sepia(0.6) hue-rotate(-8deg);
 }
 
 .g-address {
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 400;
   color: var(--text-soft);
-  line-height: 1.6;
+  line-height: 1.7;
   max-width: 280px;
   margin: 0 auto;
 }
@@ -332,13 +401,15 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin-top: 14px;
-  font-size: 15px;
+  margin-top: 16px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   color: var(--gold);
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
   border-bottom: 1px solid var(--gold);
-  padding-bottom: 2px;
+  padding-bottom: 3px;
 }
 
 .g-arrow {
@@ -350,61 +421,74 @@
   transform: translateX(4px);
 }
 
+.g-rsvp-section {
+  padding: 26px 20px 30px;
+  border-top: 1px solid var(--gold-dim);
+}
+
 .g-rsvp-btn {
   display: inline-block;
-  margin-top: 8px;
-  background: var(--gold);
-  color: var(--navy-deep);
+  margin-top: 10px;
+  background: transparent;
+  color: var(--gold-light);
   text-decoration: none;
-  border: none;
-  padding: 14px 32px;
-  border-radius: 4px;
-  letter-spacing: 2px;
-  font-size: 13px;
+  border: 1px solid var(--gold);
+  padding: 15px 40px;
+  letter-spacing: 3px;
+  font-size: 12px;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 600;
   font-family: inherit;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
 .g-rsvp-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(201, 162, 39, 0.35);
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.g-thankyou-section {
+  padding: 26px 20px;
 }
 
 .g-thankyou-text {
-  margin-top: 16px;
-  font-size: 16px;
-  font-weight: 500;
+  margin-top: 18px;
+  font-size: 15px;
+  font-weight: 400;
+  font-style: italic;
   color: var(--text-soft);
   line-height: 1.8;
 }
 
 .g-footer-band {
-  background: linear-gradient(180deg, var(--navy), var(--navy-deep));
-  border-top: 1px solid rgba(201, 162, 39, 0.4);
-  padding: 32px 20px;
+  background: var(--ink-2);
+  border-top: 1px solid var(--gold-dim);
+  padding: 34px 20px;
   display: flex;
   justify-content: center;
 }
 
 .g-footer-signature {
   font-family: "Cormorant Garamond", serif;
-  font-style: italic;
-  letter-spacing: 6px;
-  font-size: 32px;
+  letter-spacing: 8px;
+  font-size: 26px;
   color: var(--gold);
 }
 
 @media (max-width: 380px) {
   .g-card section {
-    padding: 20px 16px;
+    padding: 22px 16px;
   }
   .g-date-day {
-    font-size: 72px;
+    font-size: 64px;
   }
   .g-countdown-grid {
-    gap: 10px;
+    gap: 8px;
+  }
+  .g-countdown-frame {
+    width: 52px;
+    height: 52px;
   }
 }

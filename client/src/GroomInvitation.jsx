@@ -23,20 +23,39 @@ function Divider() {
   );
 }
 
-function LaurelIcon() {
+function CrestIcon() {
   return (
-    <svg viewBox="0 0 140 90" className="laurel" aria-hidden="true">
-      <g fill="none" stroke="currentColor" strokeWidth="1.4" opacity="0.85">
-        <path d="M6 10 C 40 10, 60 40, 60 80" />
-        <path d="M134 10 C 100 10, 80 40, 80 80" />
-        {[0, 1, 2, 3, 4].map((i) => (
-          <g key={`l${i}`}>
-            <path d={`M${10 + i * 9} ${16 + i * 10} q 14 -4 10 -16`} />
-            <path d={`M${130 - i * 9} ${16 + i * 10} q -14 -4 -10 -16`} />
-          </g>
-        ))}
+    <svg viewBox="0 0 120 130" className="crest" aria-hidden="true">
+      <g fill="none" stroke="currentColor" strokeWidth="1.2">
+        <path d="M60 4 L112 28 V72 C112 100 90 118 60 126 C30 118 8 100 8 72 V28 Z" />
+        <path
+          d="M60 14 L102 33 V71 C102 94 84 109 60 116 C36 109 18 94 18 71 V33 Z"
+          opacity="0.55"
+        />
       </g>
+      <text
+        x="60"
+        y="76"
+        textAnchor="middle"
+        fontFamily="'Cormorant Garamond', serif"
+        fontStyle="italic"
+        fontSize="34"
+        fill="currentColor"
+      >
+        &amp;
+      </text>
     </svg>
+  );
+}
+
+function CornerMarks() {
+  return (
+    <>
+      <span className="g-corner g-corner-tl" aria-hidden="true" />
+      <span className="g-corner g-corner-tr" aria-hidden="true" />
+      <span className="g-corner g-corner-bl" aria-hidden="true" />
+      <span className="g-corner g-corner-br" aria-hidden="true" />
+    </>
   );
 }
 
@@ -93,6 +112,7 @@ export default function GroomInvitation() {
         </button>
       )}
       <div className="g-card">
+        <CornerMarks />
         {/* Monogram + wedding concert label */}
         <Reveal as="section" className="g-monogram-section">
           <img className="g-monogram-img" src="/assets/monogram-as.png" alt="A & S monogram" />
@@ -118,7 +138,7 @@ export default function GroomInvitation() {
 
         {/* Date */}
         <Reveal as="section" className="g-date-hero">
-          <LaurelIcon />
+          <CrestIcon />
           <span className="g-date-day">31</span>
           <span className="g-date-month">AUG</span>
         </Reveal>
@@ -146,19 +166,27 @@ export default function GroomInvitation() {
           <h3 className="g-section-title">Time Left Until Our Wedding</h3>
           <div className="g-countdown-grid">
             <div className="g-countdown-cell">
-              <span key={days} className="g-countdown-num g-pulse">{days}</span>
+              <span className="g-countdown-frame">
+                <span key={days} className="g-countdown-num g-pulse">{days}</span>
+              </span>
               <span className="g-countdown-unit">Days</span>
             </div>
             <div className="g-countdown-cell">
-              <span key={hours} className="g-countdown-num g-pulse">{hours}</span>
+              <span className="g-countdown-frame">
+                <span key={hours} className="g-countdown-num g-pulse">{hours}</span>
+              </span>
               <span className="g-countdown-unit">Hours</span>
             </div>
             <div className="g-countdown-cell">
-              <span key={minutes} className="g-countdown-num g-pulse">{minutes}</span>
+              <span className="g-countdown-frame">
+                <span key={minutes} className="g-countdown-num g-pulse">{minutes}</span>
+              </span>
               <span className="g-countdown-unit">Minutes</span>
             </div>
             <div className="g-countdown-cell">
-              <span key={seconds} className="g-countdown-num g-pulse">{seconds}</span>
+              <span className="g-countdown-frame">
+                <span key={seconds} className="g-countdown-num g-pulse">{seconds}</span>
+              </span>
               <span className="g-countdown-unit">Seconds</span>
             </div>
           </div>
@@ -171,14 +199,22 @@ export default function GroomInvitation() {
           <div className="g-swatch-row">
             {DRESS_COLORS.map((c) => (
               <div className="g-swatch" key={c.name}>
-                <span className="g-swatch-dot" style={{ background: c.hex }} />
+                <span className="g-swatch-dot" style={{ background: c.hex }}>
+                  <svg viewBox="0 0 56 56" className="g-swatch-hex" aria-hidden="true">
+                    <polygon points="28,2 51,15 51,41 28,54 5,41 5,15" />
+                  </svg>
+                </span>
                 <span className="g-swatch-label">{c.name}</span>
               </div>
             ))}
           </div>
           <div className="g-swatch-row single">
             <div className="g-swatch">
-              <span className="g-swatch-dot" style={{ background: "var(--gold)" }} />
+              <span className="g-swatch-dot" style={{ background: "var(--gold)" }}>
+                <svg viewBox="0 0 56 56" className="g-swatch-hex" aria-hidden="true">
+                  <polygon points="28,2 51,15 51,41 28,54 5,41 5,15" />
+                </svg>
+              </span>
               <span className="g-swatch-label">
                 Gold Tie
                 <br />
