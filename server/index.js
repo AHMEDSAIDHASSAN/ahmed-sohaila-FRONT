@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import path from "node:path";
+import fs from "node:fs";
 import { fileURLToPath } from "node:url";
 import { logVisit, addRsvp, getStats } from "./db.js";
 
@@ -35,7 +36,61 @@ app.get("/api/stats", (req, res) => {
 });
 
 const clientDist = path.join(__dirname, "..", "client", "dist");
-app.use(express.static(clientDist));
+
+const SITE_URL = process.env.SITE_URL || "https://ahmed-sohaila.pevidea.com";
+
+const PAGE_META = {
+  ahmed: {
+    title: "Ahmed & Sohaila — You're Invited",
+    description: "Join us to celebrate our wedding on 31 August 2026.",
+    image: "/assets/og-groom.png",
+  },
+  sohela: {
+    title: "Ahmed & Sohaila — You're Invited",
+    description: "Join us to celebrate our wedding on 31 August 2026.",
+    image: "/assets/og-bride.png",
+  },
+  default: {
+    title: "Ahmed & Sohaila — You're Invited",
+    description: "Join us to celebrate our wedding on 31 August 2026.",
+    image: "/assets/og-bride.png",
+  },
+};
+
+function metaTags(meta, url) {
+  return `
+    <meta name="description" content="${meta.description}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="${meta.title}" />
+    <meta property="og:description" content="${meta.description}" />
+    <meta property="og:image" content="${SITE_URL}${meta.image}" />
+    <meta property="og:url" content="${url}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${meta.title}" />
+    <meta name="twitter:description" content="${meta.description}" />
+    <meta name="twitter:image" content="${SITE_URL}${meta.image}" />
+  `;
+}
+
+let indexHtmlCache = null;
+function loadIndexHtml() {
+  if (!indexHtmlCache || process.env.NODE_ENV !== "production") {
+    indexHtmlCache = fs.readFileSync(path.join(clientDist, "index.html"), "utf8");
+  }
+  return indexHtmlCache;
+}
+
+app.use(express.static(clientDist, { index: false }));
+
+app.get(["/", "/ahmed", "/sohela"], (req, res) => {
+  const key = req.path.replace(/\//g, "") || "default";
+  const meta = PAGE_META[key] || PAGE_META.default;
+  const html = loadIndexHtml()
+    .replace("<title>Ahmed & Sohaila Wedding</title>", `<title>${meta.title}</title>`)
+    .replace("<!--OG_META-->", metaTags(meta, `${SITE_URL}${req.path}`));
+  res.set("Content-Type", "text/html").send(html);
+});
+
 app.use((req, res) => {
   res.sendFile(path.join(clientDist, "index.html"));
 });
