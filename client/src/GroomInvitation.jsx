@@ -59,7 +59,7 @@ function PinIcon() {
         d="M50 0C22 0 0 22 0 50c0 38 50 80 50 80s50-42 50-80C100 22 78 0 50 0z"
         fill="var(--gold)"
       />
-      <circle cx="50" cy="48" r="22" fill="var(--navy-deep)" />
+      <circle cx="50" cy="48" r="22" fill="var(--paper)" />
     </svg>
   );
 }

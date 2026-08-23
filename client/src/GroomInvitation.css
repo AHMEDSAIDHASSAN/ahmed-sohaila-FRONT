@@ -1,18 +1,19 @@
 .g-page {
-  --ink: #0a0a0c;
-  --ink-2: #131315;
-  --panel: #121214;
-  --gold: #c9a227;
-  --gold-light: #e9d38f;
-  --gold-dim: rgba(201, 162, 39, 0.35);
-  --text-soft: #a9a6a0;
+  --paper: #f5efe1;
+  --panel: #fbf7ec;
+  --panel-2: #f0e6d2;
+  --gold: #a9822f;
+  --gold-deep: #8a6a24;
+  --ink: #2c2620;
+  --text-soft: #746a5a;
+  --gold-dim: rgba(169, 130, 47, 0.35);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   padding: 24px 12px;
   background:
-    radial-gradient(ellipse at 50% -10%, rgba(201, 162, 39, 0.14), transparent 55%),
-    var(--ink);
+    radial-gradient(ellipse at 50% -10%, rgba(169, 130, 47, 0.12), transparent 55%),
+    var(--paper);
 }
 
 .g-mute-toggle {
@@ -24,14 +25,14 @@
   height: 40px;
   border-radius: 50%;
   border: 1px solid var(--gold);
-  background: var(--ink-2);
-  color: var(--gold-light);
+  background: var(--panel);
+  color: var(--gold-deep);
   font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 6px 16px rgba(44, 38, 32, 0.15);
 }
 
 .g-card {
@@ -40,9 +41,9 @@
   max-width: 430px;
   background: var(--panel);
   border: 1px solid var(--gold-dim);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65), inset 0 0 0 1px rgba(201, 162, 39, 0.06);
+  box-shadow: 0 30px 70px rgba(44, 38, 32, 0.18), inset 0 0 0 1px rgba(169, 130, 47, 0.08);
   font-family: "Cormorant Garamond", "Cairo", serif;
-  color: var(--gold-light);
+  color: var(--ink);
 }
 
 /* Art-deco corner marks */
@@ -143,7 +144,7 @@
   width: 190px;
   margin: 0 auto;
   display: block;
-  filter: grayscale(1) brightness(1.7) sepia(0.5) hue-rotate(-8deg) contrast(1.05);
+  filter: grayscale(1) sepia(0.65) brightness(0.95) saturate(1.4);
   opacity: 0.95;
 }
 
@@ -151,20 +152,10 @@
   text-transform: uppercase;
   letter-spacing: 6px;
   font-size: 12px;
-  color: var(--gold);
+  color: var(--gold-deep);
   margin-top: 14px;
   padding-bottom: 14px;
   display: inline-block;
-}
-
-/* Concert card */
-.g-concert-section {
-  padding: 24px 20px;
-}
-
-.g-concert-img {
-  outline: 1px solid var(--gold-dim);
-  outline-offset: 6px;
 }
 
 /* Intro */
@@ -201,7 +192,7 @@
 .crest {
   width: 78px;
   height: auto;
-  color: var(--gold);
+  color: var(--gold-deep);
   margin-bottom: 10px;
 }
 
@@ -209,14 +200,14 @@
   font-family: "Cormorant Garamond", serif;
   font-size: 80px;
   line-height: 0.9;
-  color: var(--gold-light);
+  color: var(--ink);
   font-weight: 500;
 }
 
 .g-date-month {
   font-size: 22px;
   letter-spacing: 12px;
-  color: var(--gold);
+  color: var(--gold-deep);
   margin-top: 4px;
 }
 
@@ -227,7 +218,7 @@
 .g-names {
   font-size: 24px;
   letter-spacing: 5px;
-  color: var(--gold-light);
+  color: var(--gold-deep);
   font-weight: 500;
 }
 
@@ -252,7 +243,6 @@
 
 .g-detail-icon {
   margin-right: 4px;
-  filter: grayscale(1) brightness(1.4);
 }
 
 .g-section-title {
@@ -260,7 +250,7 @@
   letter-spacing: 4px;
   font-size: 15px;
   font-weight: 600;
-  color: var(--gold);
+  color: var(--gold-deep);
   margin-bottom: 6px;
 }
 
@@ -298,12 +288,13 @@
   width: 60px;
   height: 60px;
   border: 1px solid var(--gold-dim);
+  background: var(--panel-2);
 }
 
 .g-countdown-num {
   font-size: 26px;
   font-weight: 500;
-  color: var(--gold-light);
+  color: var(--ink);
 }
 
 .g-countdown-unit {
@@ -315,67 +306,6 @@
   margin-top: 8px;
 }
 
-.g-dress-section {
-  padding: 26px 20px;
-  border-top: 1px solid var(--gold-dim);
-}
-
-.g-swatch-row {
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-  flex-wrap: wrap;
-  margin-top: 12px;
-}
-
-.g-swatch-row.single {
-  margin-top: 22px;
-}
-
-.g-swatch {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  width: 88px;
-}
-
-.g-swatch-dot {
-  position: relative;
-  width: 46px;
-  height: 46px;
-  transition: transform 0.25s ease;
-}
-
-.g-swatch-hex {
-  position: absolute;
-  inset: -4px;
-  fill: none;
-  stroke: var(--gold-dim);
-  stroke-width: 1.5;
-}
-
-.g-swatch-dot {
-  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
-}
-
-.g-swatch:hover .g-swatch-dot {
-  transform: scale(1.1);
-}
-
-.g-swatch-label {
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  color: var(--text-soft);
-  text-align: center;
-}
-
-.g-swatch-label em {
-  font-style: italic;
-  opacity: 0.85;
-}
-
 /* Location */
 .g-location-section {
   padding: 26px 20px;
@@ -385,7 +315,6 @@
 .g-map-pin {
   width: 72px;
   margin: 8px auto 14px;
-  filter: grayscale(1) brightness(1.3) sepia(0.6) hue-rotate(-8deg);
 }
 
 .g-address {
@@ -405,7 +334,7 @@
   font-size: 13px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-deep);
   font-weight: 600;
   text-decoration: none;
   border-bottom: 1px solid var(--gold);
@@ -430,7 +359,7 @@
   display: inline-block;
   margin-top: 10px;
   background: transparent;
-  color: var(--gold-light);
+  color: var(--gold-deep);
   text-decoration: none;
   border: 1px solid var(--gold);
   padding: 15px 40px;
@@ -445,8 +374,8 @@
 }
 
 .g-rsvp-btn:hover {
-  background: var(--gold);
-  color: var(--ink);
+  background: var(--gold-deep);
+  color: var(--panel);
 }
 
 .g-thankyou-section {
@@ -463,7 +392,7 @@
 }
 
 .g-footer-band {
-  background: var(--ink-2);
+  background: var(--panel-2);
   border-top: 1px solid var(--gold-dim);
   padding: 34px 20px;
   display: flex;
@@ -474,7 +403,7 @@
   font-family: "Cormorant Garamond", serif;
   letter-spacing: 8px;
   font-size: 26px;
-  color: var(--gold);
+  color: var(--gold-deep);
 }
 
 @media (max-width: 380px) {

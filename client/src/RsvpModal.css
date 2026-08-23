@@ -150,50 +150,51 @@
   margin-top: 8px;
 }
 
-/* Groom theme overrides */
+/* Groom theme overrides (light ivory/gold) */
 .rsvp-modal.groom {
-  background: linear-gradient(160deg, #1b2635, #10161f);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(160deg, #fbf7ec, #f0e6d2);
+  box-shadow: 0 30px 70px rgba(44, 38, 32, 0.25);
 }
 
 .rsvp-modal.groom .rsvp-close {
-  color: #e8cf8a;
+  color: #8a6a24;
 }
 
 .rsvp-modal.groom .rsvp-title {
   font-family: "Cormorant Garamond", serif;
   font-style: italic;
-  background: linear-gradient(90deg, #c9a227, #e8cf8a);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  background: none;
+  background-clip: initial;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  color: #8a6a24;
 }
 
 .rsvp-modal.groom .rsvp-input,
 .rsvp-modal.groom .rsvp-textarea {
-  background: #1b2635;
-  border-color: rgba(201, 162, 39, 0.4);
-  color: #e8cf8a;
+  background: #fbf7ec;
+  border-color: rgba(169, 130, 47, 0.4);
+  color: #2c2620;
 }
 
 .rsvp-modal.groom .rsvp-input:focus,
 .rsvp-modal.groom .rsvp-textarea:focus {
-  border-color: #c9a227;
+  border-color: #a9822f;
 }
 
 .rsvp-modal.groom .rsvp-radios {
-  color: #e8cf8a;
+  color: #2c2620;
 }
 
 .rsvp-modal.groom .rsvp-radio input {
-  accent-color: #c9a227;
+  accent-color: #a9822f;
 }
 
 .rsvp-modal.groom .rsvp-submit {
-  background: linear-gradient(90deg, #c9a227, #e8cf8a);
-  color: #10161f;
+  background: #8a6a24;
+  color: #fbf7ec;
 }
 
 .rsvp-modal.groom .rsvp-thanks-text {
-  color: #b9bfc9;
+  color: #746a5a;
 }
