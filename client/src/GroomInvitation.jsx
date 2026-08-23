@@ -6,13 +6,6 @@ import Reveal from "./Reveal";
 import GroomEnvelopeIntro from "./GroomEnvelopeIntro";
 import RsvpModal from "./RsvpModal";
 
-const DRESS_COLORS = [
-  { name: "Navy", hex: "#1b2a4a" },
-  { name: "Charcoal", hex: "#33363d" },
-  { name: "Black", hex: "#141416" },
-  { name: "Beige", hex: "#c8b28c" },
-];
-
 function Divider() {
   return (
     <svg viewBox="0 0 200 20" className="g-divider">
@@ -119,11 +112,6 @@ export default function GroomInvitation() {
           <h2 className="g-section-label">Wedding Concert</h2>
         </Reveal>
 
-        {/* Concert card */}
-        <Reveal as="section" className="g-concert-section">
-          <img className="g-art-full g-concert-img" src="/assets/concert-card.png" alt="A timeless blessing for our new beginning" />
-        </Reveal>
-
         {/* Intro line */}
         <Reveal as="section" className="g-intro-section">
           <Divider />
@@ -188,38 +176,6 @@ export default function GroomInvitation() {
                 <span key={seconds} className="g-countdown-num g-pulse">{seconds}</span>
               </span>
               <span className="g-countdown-unit">Seconds</span>
-            </div>
-          </div>
-        </Reveal>
-
-        {/* Dress code */}
-        <Reveal as="section" className="g-dress-section">
-          <h3 className="g-section-title">Dress Code</h3>
-          <p className="g-section-sub">for guys guest</p>
-          <div className="g-swatch-row">
-            {DRESS_COLORS.map((c) => (
-              <div className="g-swatch" key={c.name}>
-                <span className="g-swatch-dot" style={{ background: c.hex }}>
-                  <svg viewBox="0 0 56 56" className="g-swatch-hex" aria-hidden="true">
-                    <polygon points="28,2 51,15 51,41 28,54 5,41 5,15" />
-                  </svg>
-                </span>
-                <span className="g-swatch-label">{c.name}</span>
-              </div>
-            ))}
-          </div>
-          <div className="g-swatch-row single">
-            <div className="g-swatch">
-              <span className="g-swatch-dot" style={{ background: "var(--gold)" }}>
-                <svg viewBox="0 0 56 56" className="g-swatch-hex" aria-hidden="true">
-                  <polygon points="28,2 51,15 51,41 28,54 5,41 5,15" />
-                </svg>
-              </span>
-              <span className="g-swatch-label">
-                Gold Tie
-                <br />
-                <em>for groomsmen</em>
-              </span>
             </div>
           </div>
         </Reveal>
