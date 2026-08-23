@@ -7,7 +7,6 @@ import EnvelopeIntro from "./EnvelopeIntro";
 import RsvpModal from "./RsvpModal";
 
 const DRESS_COLORS = [
-  { name: "Olive Green", hex: "#7c7a4c" },
   { name: "Dusty Rose", hex: "#d8a2a4" },
   { name: "Champagne", hex: "#e3cba8" },
   { name: "Mauve", hex: "#9d7c86" },
