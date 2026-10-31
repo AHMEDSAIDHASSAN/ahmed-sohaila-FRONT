@@ -43,17 +43,17 @@ const PAGE_META = {
   ahmed: {
     title: "Bilal & Farha — You're Invited",
     description: "Join us to celebrate our wedding on 6 November 2026.",
-    image: "/assets/og-groom.png",
+    image: "/assets/og-groom.png?v=2",
   },
   sohela: {
     title: "Bilal & Farha — You're Invited",
     description: "Join us to celebrate our wedding on 6 November 2026.",
-    image: "/assets/og-bride.png",
+    image: "/assets/og-bride.png?v=2",
   },
   default: {
     title: "Bilal & Farha — You're Invited",
     description: "Join us to celebrate our wedding on 6 November 2026.",
-    image: "/assets/og-bride.png",
+    image: "/assets/og-bride.png?v=2",
   },
 };
 
