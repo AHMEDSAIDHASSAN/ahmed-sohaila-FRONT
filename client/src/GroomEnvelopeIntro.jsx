@@ -18,7 +18,7 @@ export default function GroomEnvelopeIntro({ onOpen, onPlayMusic }) {
         <p className="g-invite-tag">you're invited to...</p>
         <div className={`g-envelope ${phase !== "idle" ? "open" : ""}`}>
           <div className="g-envelope-letter">
-            <span className="g-envelope-letter-mono">A&nbsp;&amp;&nbsp;S</span>
+            <span className="g-envelope-letter-mono">B&nbsp;&amp;&nbsp;F</span>
           </div>
           <div className="g-envelope-flap" />
           <div className="g-envelope-body" />

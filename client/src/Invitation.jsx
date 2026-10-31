@@ -6,12 +6,6 @@ import Reveal from "./Reveal";
 import EnvelopeIntro from "./EnvelopeIntro";
 import RsvpModal from "./RsvpModal";
 
-const DRESS_COLORS = [
-  { name: "Dusty Rose", hex: "#d8a2a4" },
-  { name: "Champagne", hex: "#e3cba8" },
-  { name: "Mauve", hex: "#9d7c86" },
-];
-
 function Divider() {
   return (
     <svg viewBox="0 0 200 20" className="divider">
@@ -77,7 +71,7 @@ export default function Invitation() {
       <div className="card">
         {/* Monogram + wedding concert label */}
         <Reveal as="section" className="monogram-section">
-          <img className="monogram-img" src="/assets/monogram-as.png" alt="A & S monogram" />
+          <img className="monogram-img" src="/assets/monogram-as.png" alt="B & F monogram" />
           <h2 className="section-label">Wedding Concert</h2>
         </Reveal>
 
@@ -102,24 +96,24 @@ export default function Invitation() {
         {/* Date */}
         <Reveal as="section" className="date-hero">
           <img className="floral-side-right float" src="/assets/floral-divider.png" alt="" aria-hidden="true" />
-          <span className="date-day">31</span>
-          <span className="date-month">AUG</span>
+          <span className="date-day">06</span>
+          <span className="date-month">NOV</span>
         </Reveal>
 
         {/* Names + details */}
         <Reveal as="section" className="names-section">
           <h1 className="names">
-            AHMED <span className="amp">&amp;</span> SOHAILA
+            BILAL <span className="amp">&amp;</span> FARHA
           </h1>
           <ul className="details-list">
             <li>
-              <span className="detail-icon">📅</span> 31 August 2026
+              <span className="detail-icon">📅</span> 6 November 2026
             </li>
             <li>
-              <span className="detail-icon">🕖</span> 7:00 PM
+              <span className="detail-icon">🕖</span> 8:00 PM
             </li>
             <li>
-              <span className="detail-icon">📍</span> Loutes Hall, Police Club
+              <span className="detail-icon">📍</span> Venice Hall
             </li>
           </ul>
         </Reveal>
@@ -147,36 +141,12 @@ export default function Invitation() {
           </div>
         </Reveal>
 
-        {/* Dress code */}
-        <Reveal as="section" className="dress-section">
-          <h3 className="section-title">Dress Code</h3>
-          <p className="section-sub">for girls guest</p>
-          <div className="swatch-row">
-            {DRESS_COLORS.map((c) => (
-              <div className="swatch" key={c.name}>
-                <span className="swatch-dot" style={{ background: c.hex }} />
-                <span className="swatch-label">{c.name}</span>
-              </div>
-            ))}
-          </div>
-          <div className="swatch-row single">
-            <div className="swatch">
-              <span className="swatch-dot" style={{ background: "#6d1626" }} />
-              <span className="swatch-label">
-                Wine Red
-                <br />
-                <em>for bridesmaids</em>
-              </span>
-            </div>
-          </div>
-        </Reveal>
-
         {/* Location */}
         <Reveal as="section" className="location-section">
           <h3 className="section-title">Where to Find Us</h3>
           <PinIcon />
           <p className="address">
-            5WPQ+7CG, El Moaskar, Moharam Bek, Alexandria Governorate 5411450
+            Venice Hall, As Soyouf Qebli, Montaza 2, Alexandria Governorate 5515364
           </p>
           <a className="view-location" href={MAPS_URL} target="_blank" rel="noreferrer">
             View Location <span className="arrow">→</span>
@@ -186,7 +156,7 @@ export default function Invitation() {
         {/* RSVP */}
         <Reveal as="section" className="rsvp-section">
           <h3 className="section-title">RSVP</h3>
-          <p className="section-sub">Kindly RSVP by 31 August 2026</p>
+          <p className="section-sub">Kindly RSVP by 6 November 2026</p>
           <button className="rsvp-btn" onClick={() => setRsvpOpen(true)}>
             Confirm Your Presence
           </button>
@@ -205,7 +175,7 @@ export default function Invitation() {
         </Reveal>
 
         {/* Footer */}
-        <Reveal as="img" className="art-full footer-band-img" src="/assets/footer-band.png" alt="S & A" />
+        <Reveal as="img" className="art-full footer-band-img" src="/assets/footer-band.png" alt="F & B" />
       </div>
     </div>
   );

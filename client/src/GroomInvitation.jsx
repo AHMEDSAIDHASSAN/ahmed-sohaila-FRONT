@@ -108,7 +108,7 @@ export default function GroomInvitation() {
         <CornerMarks />
         {/* Monogram + wedding concert label */}
         <Reveal as="section" className="g-monogram-section">
-          <img className="g-monogram-img" src="/assets/monogram-as.png" alt="A & S monogram" />
+          <img className="g-monogram-img" src="/assets/monogram-as.png" alt="B & F monogram" />
           <h2 className="g-section-label">Wedding Concert</h2>
         </Reveal>
 
@@ -127,24 +127,24 @@ export default function GroomInvitation() {
         {/* Date */}
         <Reveal as="section" className="g-date-hero">
           <CrestIcon />
-          <span className="g-date-day">31</span>
-          <span className="g-date-month">AUG</span>
+          <span className="g-date-day">06</span>
+          <span className="g-date-month">NOV</span>
         </Reveal>
 
         {/* Names + details */}
         <Reveal as="section" className="g-names-section">
           <h1 className="g-names">
-            AHMED <span className="g-amp">&amp;</span> SOHAILA
+            BILAL <span className="g-amp">&amp;</span> FARHA
           </h1>
           <ul className="g-details-list">
             <li>
-              <span className="g-detail-icon">📅</span> 31 August 2026
+              <span className="g-detail-icon">📅</span> 6 November 2026
             </li>
             <li>
-              <span className="g-detail-icon">🕖</span> 7:00 PM
+              <span className="g-detail-icon">🕖</span> 8:00 PM
             </li>
             <li>
-              <span className="g-detail-icon">📍</span> Loutes Hall, Police Club
+              <span className="g-detail-icon">📍</span> Venice Hall
             </li>
           </ul>
         </Reveal>
@@ -185,7 +185,7 @@ export default function GroomInvitation() {
           <h3 className="g-section-title">Where to Find Us</h3>
           <PinIcon />
           <p className="g-address">
-            5WPQ+7CG, El Moaskar, Moharam Bek, Alexandria Governorate 5411450
+            Venice Hall, As Soyouf Qebli, Montaza 2, Alexandria Governorate 5515364
           </p>
           <a className="g-view-location" href={MAPS_URL} target="_blank" rel="noreferrer">
             View Location <span className="g-arrow">→</span>
@@ -195,7 +195,7 @@ export default function GroomInvitation() {
         {/* RSVP */}
         <Reveal as="section" className="g-rsvp-section">
           <h3 className="g-section-title">RSVP</h3>
-          <p className="g-section-sub">Kindly RSVP by 31 August 2026</p>
+          <p className="g-section-sub">Kindly RSVP by 6 November 2026</p>
           <button className="g-rsvp-btn" onClick={() => setRsvpOpen(true)}>
             Confirm Your Presence
           </button>
@@ -215,7 +215,7 @@ export default function GroomInvitation() {
 
         {/* Footer */}
         <footer className="g-footer-band">
-          <span className="g-footer-signature">A &amp; S</span>
+          <span className="g-footer-signature">B &amp; F</span>
         </footer>
       </div>
     </div>

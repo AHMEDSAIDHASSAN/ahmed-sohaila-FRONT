@@ -37,22 +37,22 @@ app.get("/api/stats", (req, res) => {
 
 const clientDist = path.join(__dirname, "..", "client", "dist");
 
-const SITE_URL = process.env.SITE_URL || "https://ahmed-sohaila.pevidea.com";
+const SITE_URL = process.env.SITE_URL || "https://belal-farha.pevidea.com";
 
 const PAGE_META = {
   ahmed: {
-    title: "Ahmed & Sohaila — You're Invited",
-    description: "Join us to celebrate our wedding on 31 August 2026.",
+    title: "Bilal & Farha — You're Invited",
+    description: "Join us to celebrate our wedding on 6 November 2026.",
     image: "/assets/og-groom.png",
   },
   sohela: {
-    title: "Ahmed & Sohaila — You're Invited",
-    description: "Join us to celebrate our wedding on 31 August 2026.",
+    title: "Bilal & Farha — You're Invited",
+    description: "Join us to celebrate our wedding on 6 November 2026.",
     image: "/assets/og-bride.png",
   },
   default: {
-    title: "Ahmed & Sohaila — You're Invited",
-    description: "Join us to celebrate our wedding on 31 August 2026.",
+    title: "Bilal & Farha — You're Invited",
+    description: "Join us to celebrate our wedding on 6 November 2026.",
     image: "/assets/og-bride.png",
   },
 };
@@ -86,7 +86,7 @@ app.get(["/", "/ahmed", "/sohela"], (req, res) => {
   const key = req.path.replace(/\//g, "") || "default";
   const meta = PAGE_META[key] || PAGE_META.default;
   const html = loadIndexHtml()
-    .replace("<title>Ahmed & Sohaila Wedding</title>", `<title>${meta.title}</title>`)
+    .replace("<title>Bilal & Farha Wedding</title>", `<title>${meta.title}</title>`)
     .replace("<!--OG_META-->", metaTags(meta, `${SITE_URL}${req.path}`));
   res.set("Content-Type", "text/html").send(html);
 });

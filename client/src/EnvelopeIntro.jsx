@@ -18,7 +18,7 @@ export default function EnvelopeIntro({ onOpen, onPlayMusic }) {
         <p className="invite-tag">you're invited to...</p>
         <div className={`envelope ${phase !== "idle" ? "open" : ""}`}>
           <div className="envelope-letter">
-            <span className="envelope-letter-mono">A&nbsp;&amp;&nbsp;S</span>
+            <span className="envelope-letter-mono">B&nbsp;&amp;&nbsp;F</span>
           </div>
           <div className="envelope-flap" />
           <div className="envelope-body" />
