@@ -8,7 +8,7 @@ import { logVisit, addRsvp, getStats } from "./db.js";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
 
-const ADMIN_KEY = process.env.ADMIN_KEY || "ahmed-sohaila-2026";
+const ADMIN_KEY = process.env.ADMIN_KEY;
 const PORT = process.env.PORT || 4000;
 
 app.use(cors());
@@ -31,7 +31,7 @@ app.post("/api/rsvp", (req, res) => {
 
 app.get("/api/stats", (req, res) => {
   const key = req.query.key || req.headers["x-admin-key"];
-  if (key !== ADMIN_KEY) return res.status(401).json({ error: "unauthorized" });
+  if (!ADMIN_KEY || key !== ADMIN_KEY) return res.status(401).json({ error: "unauthorized" });
   res.json(getStats());
 });
 
